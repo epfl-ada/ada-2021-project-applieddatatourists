@@ -39,7 +39,6 @@ We also checked that merging the meta data with the spaCy dataset was feasible a
   <img width="600" src="https://github.com/epfl-ada/ada-2021-project-applieddatatourists/blob/master/scheme.png?raw=true" alt="Workflow">
   <p align="center">Figure 1: Workflow graph</p>
 </p>
-Figure 1: Workflow graph
 
 ## Proposed timeline
 
