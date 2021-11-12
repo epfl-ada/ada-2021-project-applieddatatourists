@@ -61,7 +61,7 @@ Figure 1: Workflow graph
 ## Organization within the team
 
 - Adrien: Name extraction with spaCy, data analysis on extracted names, text report
-- Andras: preliminary analysis of data, participation in graph visualization, text report and presentation
+- Andras: Preliminary analysis of data, participation in graph visualization, text report and presentation
 - Clement: Meta data exploration, analysis of gender and occupations, figures, design of the graph building process
 - Stella: Meta data exploration, Wiki database merging with meta data, Merging name extraction with explicit meta data
 
