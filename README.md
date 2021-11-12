@@ -36,7 +36,10 @@ We checked if the distribution of occupation would be sufficient to analyze our 
 - **Relationships graph:** We are interested in designing a relationships graph which expresses the relations between two individuals according to certain conditions. By default, there is a relation from the speaker to the referred person. These relations can now be divided into clusters according to some variables. As an example, athletes talking to each other form a cluster which may intersect with a political cluster if people from both backgrounds communicate. From this basis, we can add the countries and the gender. Note that the order is important for viewing the information in the graph: building gender relations knowing the occupation does not have the same result as building occupation relations knowing the gender.
 
 
-![Screenshot](https://drive.google.com/file/d/1t1YCdpnQ8D-KQm8XOD9D2PVdKpfzEDCv/view?usp=sharing)
+<p align="center">
+  <img width="600" src="https://github.com/epfl-ada/ada-2021-project-applieddatatourists/blob/master/scheme.png?raw=true" alt="Workflow">
+  <p align="center">Figure 1: Workflow graph</p>
+</p>
 
 ## Proposed timeline
 
