@@ -55,7 +55,8 @@ def build_graph(ntx_graph, network):
     for edge_data in ntx_graph.edges.data():
         node_a, node_b, props = edge_data
         weight = props['weight']
-        network.add_edge(node_a, node_b)
+        if weight > 500:
+            network.add_edge(node_a, node_b, value=weight)
 
 
 if __name__ == "__main__":
@@ -64,5 +65,8 @@ if __name__ == "__main__":
 
     network = pyvis.network.Network(height='750px', width='100%', directed=True)
     build_graph(ntx_graph, network)
+
+    network.barnes_hut(spring_length=600, spring_strength=4, overlap=1)
     network.show_buttons(filter_=['physics'])
+
     network.show('nt.html')
