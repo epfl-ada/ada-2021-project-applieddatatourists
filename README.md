@@ -40,6 +40,10 @@ We also checked that merging the meta data with the spaCy dataset was feasible a
   <p align="center">Figure 1: Workflow graph</p>
 </p>
 
+## Our websiste
+
+https://github.com/stellaroux/Viz_ADA/blob/gh-pages/index.md
+
 ## Proposed timeline
 
 - Week 9: 
@@ -56,11 +60,10 @@ We also checked that merging the meta data with the spaCy dataset was feasible a
         Finishing documentation, presentation, deadline
 
 
-
 ## Organization within the team
 
 - Adrien: Name extraction with spaCy, data analysis on extracted names, text report
 - Andras: Preliminary analysis of data, participation in graph visualization, text report and presentation
 - Clement: Meta data exploration, analysis of gender and occupations, figures, design of the graph building process
-- Stella: Meta data exploration, Wiki database merging with meta data, Merging name extraction with explicit meta data
+- Stella: Meta data exploration, Wiki database merging with meta data, Merging name extraction with explicit meta data, Visualization 
 
