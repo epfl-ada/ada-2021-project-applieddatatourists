@@ -42,7 +42,7 @@ We also checked that merging the meta data with the spaCy dataset was feasible a
 
 ## Our data story
 
-https://github.com/stellaroux/Viz_ADA/blob/gh-pages/index.md
+https://stellaroux.github.io/Viz_ADA/
 
 ## Proposed timeline
 
