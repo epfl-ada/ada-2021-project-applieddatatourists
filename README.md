@@ -40,7 +40,7 @@ We also checked that merging the meta data with the spaCy dataset was feasible a
   <p align="center">Figure 1: Workflow graph</p>
 </p>
 
-## Our websiste
+## Our data story
 
 https://github.com/stellaroux/Viz_ADA/blob/gh-pages/index.md
 
