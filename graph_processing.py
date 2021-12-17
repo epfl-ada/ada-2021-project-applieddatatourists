@@ -64,7 +64,6 @@ def build_graph(ntx_graph, network, edges_proportion=0.05,
     nodes_data = ntx_graph.nodes.data()
     for node in ntx_graph.nodes:
         # Retrieves the data for each edge coming out of node
-        node_w = nodes_data[node]['weight']
         out_weights = [ntx_graph.get_edge_data(node, s)['weight']
                        for s in ntx_graph.successors(node)
                        ]
@@ -78,7 +77,7 @@ def build_graph(ntx_graph, network, edges_proportion=0.05,
         min_accepted_weight = np.quantile(out_weights, 1 - edges_proportion)
         for k, succ in enumerate(ntx_graph.successors(node)):
             if out_weights[k] >= min_accepted_weight:
-                network.add_edge(node, succ, weight=out_weights[k])
+                network.add_edge(node, succ, weight=out_weights[k], width=out_weights[k] * 25)
 
     color_nodes(network, ntx_graph, use_genders)
 
