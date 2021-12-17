@@ -15,11 +15,10 @@ _GENDERS_COLORS_ = {'male': '200, 50, 50',
                     'genderfluid': '50, 255, 50',
                     'shemale': '76, 47, 39',
                     'bigender': '230, 159, 0',
-                    'intersex': '0, 114, 178',
-                    'eunuch': '0, 158, 115'}
+                    'intersex': '0, 114, 178'}
 
 
-def filter_nodes(ntx_graph, min_weight=500):
+def filter_nodes(ntx_graph, min_weight=500, condition=None):
     """
     Reduces the amount of nodes in the networkx graph in
     the following manner:
@@ -27,10 +26,15 @@ def filter_nodes(ntx_graph, min_weight=500):
     The graph is modified inplace.
     :param ntx_graph: networkx graph to filter
     :param min_weight: filtering parameter
+    :param condition: Function f(node) --> boolean.
+        If for a node n f(n) = True, then n will be displayed
+        on the pyvis graph whatever its weight is.
     """
+    if condition is None:
+        condition = lambda node: False
     for i, node_name in enumerate(list(ntx_graph.nodes)):
         node = ntx_graph.nodes.data()[node_name]
-        if node['weight'] < min_weight:
+        if node['weight'] < min_weight and not condition(node_name):
             ntx_graph.remove_node(node_name)
 
 
@@ -40,7 +44,7 @@ def build_graph(ntx_graph, network, edges_proportion=0.05,
     Builds the pyvis graph from the NetworkX graph.
     :param ntx_graph: networkx graph to translate
     :param network: PyVis graph to fill with the data from
-        ntx_graph
+        ntx_graph.
     :param edges_proportion: float between 0 and 1. Proportion
         of the edges coming out of each node to be included in
         the PyVis graph. For example, 0.2 means only the 20%
@@ -53,7 +57,9 @@ def build_graph(ntx_graph, network, edges_proportion=0.05,
         node = ntx_graph.nodes.data()[node_name]
         # Adds a node in the pyvis network whose label is the occupation
         # name, and value is the number of speakers contained in the node
-        network.add_node(node_name, label=node_name, value=node['weight'])
+        weight = node['weight']
+        title = f'{node_name}, {weight} people'
+        network.add_node(node_name, label=node_name, value=weight, title=title)
     # Step 2: add the edges
     nodes_data = ntx_graph.nodes.data()
     for node in ntx_graph.nodes:
@@ -93,7 +99,10 @@ def color_nodes(network, ntx_graph, use_gender=False):
         if use_gender:
             # The labels are "occupation_gender"
             gender = network.get_nodes()[id_node].split('_')[1]
-            color = _GENDERS_COLORS_[gender]
+            if gender in _GENDERS_COLORS_:
+                color = _GENDERS_COLORS_[gender]
+            else:
+                color = '100, 100, 100'
         else:
             color = base_color
         network.nodes[id_node]['color'] = f'rgba({color},{opacity})'
