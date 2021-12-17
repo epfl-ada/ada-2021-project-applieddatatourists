@@ -32,7 +32,7 @@ def gender_condition(node):
     gender = node.split('_')[1]
     return gender not in ['male', 'female']
 
-_USE_GENDER_ = False
+_USE_GENDER_ = True
 _SAVE_DIR_ = "html_graphs"
 
 if __name__ == "__main__":
@@ -49,7 +49,6 @@ if __name__ == "__main__":
         build_graph(ntx_graph, network, edges_proportion=0.05, use_genders=_USE_GENDER_)
 
         network.barnes_hut(central_gravity=0.3, spring_strength=0.01, spring_length=50)
-        network.show_buttons(filter_=['physics'])
 
         if _USE_GENDER_:
             filename = f"nt_occupation_gender_{year}.html"
